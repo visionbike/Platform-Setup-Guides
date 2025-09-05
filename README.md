@@ -17,14 +17,14 @@ The repository is organized by `hardware-platform` and then by `os-version`. Eac
 
 Example:
 
-```md
+```txt
 platform-setup-guides/
 ├── ubuntu_desktop/
-│   └── ubuntu-22.04/
+│   └── ubuntu_22.04/
 │       ├── 01_nvidia_driver_cuda_cudnn_and_tensorrt.md
 │       └── ...
 ├── jetson_orin_nano/
-│   └── jetpack-5.1/
+│   └── jetpack_5.1/
 │       ├── ...
 ├── scripts/
 │   └── ... (automation scripts for various steps)
