@@ -730,3 +730,7 @@ For Python samples, the process involve the following steps:
     ```sh
     Correctly recognized /home/felixnguyen/projects/tensorrt_samples/data/resnet50/tabby_tiger_cat.jpg as tiger cat
     ```
+
+## Conclusion
+
+Your machine is now a powerful platform for AI development and accelerated computing. The next step is to install a GPU-accelerated library like PyTorch or TensorFlow. From there, you can start training models, running inference, and exploring the performance gains from your new setup.
