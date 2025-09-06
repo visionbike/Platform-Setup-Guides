@@ -155,4 +155,6 @@ To set up SSH access, you must configure to connect the remote server via `Remot
 
 ## Conclusion
 
-**Remote SSH** is now up and running, and you can securely access your machine's command line from anywhere. For more information, you can refer to the man page by using command `man ssh`.
+**Remote SSH** is now up and running, and you can securely access your machine's command line from anywhere. 
+
+For more information, you can refer to the man page by using command `man ssh`.
