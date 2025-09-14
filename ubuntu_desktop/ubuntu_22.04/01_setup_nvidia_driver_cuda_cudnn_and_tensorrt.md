@@ -289,7 +289,7 @@ exit
 
 ### 3. Running Examples
 
-CUDA Samples are now located in [https://github.com/nvidia/cuda-samples](https://github.com/nvidia/cuda-samples), which includes instructions for obtaining, building, and running the samples.
+CUDA samples are now located in [https://github.com/nvidia/cuda-samples](https://github.com/nvidia/cuda-samples), which includes instructions for obtaining, building, and running the samples.
 
 Download the `cuda-samples` for `CUDA 12.8` using `git` command.
 
@@ -313,87 +313,87 @@ After compilation, run `deviceQuery`.
 ./deviceQuery
 ```
 
-- The output should be like:
+The output should be like:
 
-    ```txt
-    ./deviceQuery Starting...
+```txt
+./deviceQuery Starting...
 
-    CUDA Device Query (Runtime API) version (CUDART static linking)
+CUDA Device Query (Runtime API) version (CUDART static linking)
 
-    Detected 1 CUDA Capable device(s)
+Detected 1 CUDA Capable device(s)
 
-    Device 0: "NVIDIA GeForce RTX 3070 Ti Laptop GPU"
-    CUDA Driver Version / Runtime Version          12.8 / 12.8
-    CUDA Capability Major/Minor version number:    8.6
-    Total amount of global memory:                 7851 MBytes (8232435712 bytes)
-    (046) Multiprocessors, (128) CUDA Cores/MP:    5888 CUDA Cores
-    GPU Max Clock rate:                            1410 MHz (1.41 GHz)
-    Memory Clock rate:                             7001 Mhz
-    Memory Bus Width:                              256-bit
-    L2 Cache Size:                                 4194304 bytes
-    Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
-    Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
-    Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
-    Total amount of constant memory:               65536 bytes
-    Total amount of shared memory per block:       49152 bytes
-    Total shared memory per multiprocessor:        102400 bytes
-    Total number of registers available per block: 65536
-    Warp size:                                     32
-    Maximum number of threads per multiprocessor:  1536
-    Maximum number of threads per block:           1024
-    Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
-    Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
-    Maximum memory pitch:                          2147483647 bytes
-    Texture alignment:                             512 bytes
-    Concurrent copy and kernel execution:          Yes with 2 copy engine(s)
-    Run time limit on kernels:                     Yes
-    Integrated GPU sharing Host Memory:            No
-    Support host page-locked memory mapping:       Yes
-    Alignment requirement for Surfaces:            Yes
-    Device has ECC support:                        Disabled
-    Device supports Unified Addressing (UVA):      Yes
-    Device supports Managed Memory:                Yes
-    Device supports Compute Preemption:            Yes
-    Supports Cooperative Kernel Launch:            Yes
-    Supports MultiDevice Co-op Kernel Launch:      Yes
-    Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
-    Compute Mode:
-        < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
+Device 0: "NVIDIA GeForce RTX 3070 Ti Laptop GPU"
+CUDA Driver Version / Runtime Version          12.8 / 12.8
+CUDA Capability Major/Minor version number:    8.6
+Total amount of global memory:                 7851 MBytes (8232435712 bytes)
+(046) Multiprocessors, (128) CUDA Cores/MP:    5888 CUDA Cores
+GPU Max Clock rate:                            1410 MHz (1.41 GHz)
+Memory Clock rate:                             7001 Mhz
+Memory Bus Width:                              256-bit
+L2 Cache Size:                                 4194304 bytes
+Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+Total amount of constant memory:               65536 bytes
+Total amount of shared memory per block:       49152 bytes
+Total shared memory per multiprocessor:        102400 bytes
+Total number of registers available per block: 65536
+Warp size:                                     32
+Maximum number of threads per multiprocessor:  1536
+Maximum number of threads per block:           1024
+Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+Maximum memory pitch:                          2147483647 bytes
+Texture alignment:                             512 bytes
+Concurrent copy and kernel execution:          Yes with 2 copy engine(s)
+Run time limit on kernels:                     Yes
+Integrated GPU sharing Host Memory:            No
+Support host page-locked memory mapping:       Yes
+Alignment requirement for Surfaces:            Yes
+Device has ECC support:                        Disabled
+Device supports Unified Addressing (UVA):      Yes
+Device supports Managed Memory:                Yes
+Device supports Compute Preemption:            Yes
+Supports Cooperative Kernel Launch:            Yes
+Supports MultiDevice Co-op Kernel Launch:      Yes
+Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
+Compute Mode:
+    < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
 
-    deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.8, CUDA Runtime Version = 12.8, NumDevs = 1
-    Result = PASS
-    ```
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.8, CUDA Runtime Version = 12.8, NumDevs = 1
+Result = PASS
+```
 
-Simmilarly, compiling and running `bandwidthTest` program to ensures the system and CUDA-capable device are able to communicate correctly. 
+Simmilarly, compile and run `bandwidthTest` program to ensures the system and CUDA-capable device are able to communicate correctly. 
 
-- The output should be like.
+The output should be like:
 
-    ```txt
-    [CUDA Bandwidth Test] - Starting...
-    Running on...
+```txt
+[CUDA Bandwidth Test] - Starting...
+Running on...
 
-    Device 0: NVIDIA GeForce RTX 3070 Ti Laptop GPU
-    Quick Mode
+Device 0: NVIDIA GeForce RTX 3070 Ti Laptop GPU
+Quick Mode
 
-    Host to Device Bandwidth, 1 Device(s)
-    PINNED Memory Transfers
-    Transfer Size (Bytes)	Bandwidth(GB/s)
-    32000000			24.6
+Host to Device Bandwidth, 1 Device(s)
+PINNED Memory Transfers
+Transfer Size (Bytes)	Bandwidth(GB/s)
+32000000			24.6
 
-    Device to Host Bandwidth, 1 Device(s)
-    PINNED Memory Transfers
-    Transfer Size (Bytes)	Bandwidth(GB/s)
-    32000000			26.2
+Device to Host Bandwidth, 1 Device(s)
+PINNED Memory Transfers
+Transfer Size (Bytes)	Bandwidth(GB/s)
+32000000			26.2
 
-    Device to Device Bandwidth, 1 Device(s)
-    PINNED Memory Transfers
-    Transfer Size (Bytes)	Bandwidth(GB/s)
-    32000000			250.2
+Device to Device Bandwidth, 1 Device(s)
+PINNED Memory Transfers
+Transfer Size (Bytes)	Bandwidth(GB/s)
+32000000			250.2
 
-    Result = PASS
+Result = PASS
 
-    NOTE: The CUDA Samples are not meant for performance measurements. Results may vary when GPU Boost is enabled.
-    ```
+NOTE: The CUDA Samples are not meant for performance measurements. Results may vary when GPU Boost is enabled.
+```
 
 Some CUDA samples use third-party libraries which may not be installed be default on the system.
 
@@ -420,7 +420,8 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./simpleGL
 ```
 
 - The output should be:
-    ![alt text](images/01_simplegl_results.png)
+
+![alt text](images/01_simplegl_result.png)
 
 ### 4. (Optional) Uninstalling CUDA Toolkit
 
@@ -465,6 +466,7 @@ tar -xvf cudnn-linux-x86_64-9.12.0.46_cuda12-archive.tar.xz
 ```
 
 You will get folders like `include/`, `lib/`, etc. Then copy cuDNN files into CUDA directory.
+
 E.g.,
 ```sh
 sudo cp ./include/cudnn*.h /usr/local/cuda-12.8/include
@@ -696,40 +698,41 @@ For Python samples, the process involve the following steps:
 
 1. Setup the python environment using `requirements.txt` file in `samples/python/`. 
 
-    - You could use the `virtual` or `conda` environment to setup. In this guide, `mamba` from [Miniforge](https://github.com/conda-forge/miniforge) was used.
+- You could use the `virtual` or `conda` environment to setup. In this guide, `mamba` from [Miniforge](https://github.com/conda-forge/miniforge) was used.
 
-    ```sh
-    mamba create -n tensorrt_samples python=3.11
-    mamba activate tensorrt_samples
-    ```
-    - Remember install `tensorrt-*-cp3x-none-linux_x86_64.whl` in `/opt/tensorrt-10.9.0/python/` directory first. 
+```sh
+mamba create -n tensorrt_samples python=3.11
+mamba activate tensorrt_samples
+```
+- Remember install `tensorrt-*-cp3x-none-linux_x86_64.whl` in `/opt/tensorrt-10.9.0/python/` directory first. 
 
-    ```sh
-    pip install /opt/tensorrt-10.9.0/python/tensorrt-*-cp311-none-linux_x86_64.whl
-    ```
+```sh
+pip install /opt/tensorrt-10.9.0/python/tensorrt-*-cp311-none-linux_x86_64.whl
+```
 
-    - Install the `samples/python/requirements.txt` file.
-    
-    ```sh
-    pip install -r requirements.txt
-    ```
+- Install the `samples/python/requirements.txt` file.
+
+```sh
+pip install -r requirements.txt
+```
 
 2. Go to the specific sample folder, e.g., `introductory_parser_samples`, then install the `requirements.txt`.
 
-    ```sh
-    cd introductory_parser_samples/ && pip install -r requirements.txt
-    ```
+```sh
+cd introductory_parser_samples/ && pip install -r requirements.txt
+```
 
 3. Run the program.
-    ```sh
-    python onnx_resnet50.py -d ../../../data
-    ```
 
-    - ` The output should be show as below:
+```sh
+python onnx_resnet50.py -d ../../../data
+```
 
-    ```sh
-    Correctly recognized /home/felixnguyen/projects/tensorrt_samples/data/resnet50/tabby_tiger_cat.jpg as tiger cat
-    ```
+- The output should be show as below:
+
+```sh
+Correctly recognized /home/felixnguyen/projects/tensorrt_samples/data/resnet50/tabby_tiger_cat.jpg as tiger cat
+```
 
 ## Conclusion
 

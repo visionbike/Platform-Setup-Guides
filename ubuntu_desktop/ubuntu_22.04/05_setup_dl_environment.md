@@ -75,7 +75,7 @@ Then open the **VS Code** and ready to use.
 ```sh
 sudo mkdir -p /opt/pycharm
 
-tar -xzf pycharm-*.tar.gz -C /opt/pycharm --strip-components 1
+sudo tar -xzf pycharm-*.tar.gz -C /opt/pycharm --strip-components 1
 ```
 
 Launch **PyCharm**.

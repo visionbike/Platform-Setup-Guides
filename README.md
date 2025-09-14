@@ -9,7 +9,7 @@ This table outlines the currently available setup guides.
 | Hardware Platform | Operating System / SDK |
 | :---------------- | :--------------------- |
 | Ubuntu Desktop (x86_64) | Ubuntu 22.04 LTS |
-| NVIDIA Jetson Orin Nano | NVIDIA JetPack 6.2.1 |
+| NVIDIA Jetson Orin NX | NVIDIA JetPack 6.2.x |
 
 ## Directory Structure
 
@@ -23,8 +23,8 @@ platform-setup-guides/
 │   └── ubuntu_22.04/
 │       ├── 01_nvidia_driver_cuda_cudnn_and_tensorrt.md
 │       └── ...
-├── jetson_orin_nano/
-│   └── jetpack_5.1/
+├── jetson_orin_nx/
+│   └── jetpack_6.2.x/
 │       ├── ...
 ├── scripts/
 │   └── ... (automation scripts for various steps)
