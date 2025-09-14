@@ -425,7 +425,7 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./simpleGL
 
 ### 4. (Optional) Uninstalling CUDA Toolkit
 
-If you use `*.run` file method to install CUDA Toolkit, the below will be the clean and safe way to uninstall CUDA.
+If you use `*.run` file method to install CUDA Toolkit, the bellows will be the clean and safe way to uninstall CUDA.
 
 Find the CUDA installation directory in `/usr/local/`, e.g., `/usr/local/cuda-12.8`.
 
@@ -510,15 +510,15 @@ Extract to `cudnn_samples` folder.
 ```sh
 mkdir ~/projects/cudnn_samples
 
-tar -xvf cudnn_samples-source-9.12.0.46-archive.tar.xz -C ~/projects/cudnn_samples --strip-components 1
+tar -xvf cudnn_samples-source-9.12.0.46-archive.tar.xz -C ~/projects/cudnn_samples --strip-components 3
 ```
 
-To compile `mnistCUDNN` sample.
+To compile `mnistCUDNN` sample, run the command:
 
 ```sh
-cd cudnn_samples/src/cudnn_samples_v9/mnistCUDNN
+cd cudnn_samples/mnistCUDNN
 
-make -j $(nproc)
+make CUDA_PATH=/usr/local/cuda-12.8 -j $(nproc)
 ```
 
 Run the program.
@@ -529,19 +529,21 @@ Run the program.
 
 You should get a bunch of output with the last line saying **Test passed!**.
 
-To compile `conv_sample` sample.
+To compile `conv_sample` sample, run the command:
 
 ```sh
-cd cudnn_samples/src/cudnn_samples_v9/conv_sample
+cd cudnn_samples/conv_sample
 
 make CUDA_PATH=/usr/local/cuda-12.8 -j $(nproc)
 ```
 
-Run the program
+Run the program.
 
 ```sh
 bash run_conv_sample.sh
 ```
+
+You would get last line saying **Test PASSED**.
 
 ## IV. TensorRT Installation
 
@@ -611,7 +613,7 @@ For C++ samples, go to the `samples/` directory to build all samples and then ru
 cd ~/projects/tensorrt_samples/samples && make -j$(nproc) CUDA_INSTALL_DIR=/usr/local/cuda-12.8 TRT_LIB_DIR=/opt/tensorrt-10.9.0/lib
 ```
 
-Run the `sample_onnx_mnist`.
+Run the `sample_onnx_mnist` sample.
 
 ```sh
 cd ../bin && ./sample_onnx_mnist
@@ -704,6 +706,7 @@ For Python samples, the process involve the following steps:
 mamba create -n tensorrt_samples python=3.11
 mamba activate tensorrt_samples
 ```
+
 - Remember install `tensorrt-*-cp3x-none-linux_x86_64.whl` in `/opt/tensorrt-10.9.0/python/` directory first. 
 
 ```sh
@@ -728,7 +731,7 @@ cd introductory_parser_samples/ && pip install -r requirements.txt
 python onnx_resnet50.py -d ../../../data
 ```
 
-- The output should be show as below:
+- The output should be shown as bellows:
 
 ```sh
 Correctly recognized /home/felixnguyen/projects/tensorrt_samples/data/resnet50/tabby_tiger_cat.jpg as tiger cat

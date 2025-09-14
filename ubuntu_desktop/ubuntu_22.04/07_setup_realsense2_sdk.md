@@ -114,7 +114,7 @@ Create an samples folder for RealSense SDK:
 mkdir -p ~/projects/realsense2_samples
 ```
 
-The directory structure should be as belows:
+The directory structure should be as bellows:
 
 ```txt
 realsense2_samples
@@ -226,7 +226,7 @@ The camera is facing an object 0.54 meters away
 
 #### Troubleshooting
 
-In the RealSense SDK version `2.56.x`, you may meet the error as belows:
+In the RealSense SDK version `2.56.x`, you may meet the error as bellows:
 
 ```txt
 CMake Error at CMakeLists.txt:5 (find_package):

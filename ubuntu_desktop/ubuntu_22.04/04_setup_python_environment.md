@@ -75,7 +75,6 @@ Clean cache.
 mamba clean --all
 ```
 
-
 List packages of an environment.
 
 ```sh
@@ -98,6 +97,12 @@ Create an environment from imported file.
 
 ```sh
 mamba env create -f name_env.yaml
+```
+
+Remove an environment.
+
+```sh
+mamba env remove -n name_env
 ```
 
 ## Conclusion
