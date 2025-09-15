@@ -30,6 +30,27 @@ conda config --set auto_activate_base false
 
 After running this, when you open a terminal, you will stay in the system environment (no `base` activated).
 
+### Truobleshooting: `mamba` command is not executable in terminal
+
+If you meet this issue, make sure the bellow code blocks be in the `.bashrc`:
+
+```txt
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/home/<username>/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/<username>/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROO>
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+```
+
+where `<username>` is the user name of your Ubuntu machine. Change `<username>` by your own.
+
 ### Basic `mamba` command
 
 `mamba` is a fast, drop-in replacement for the `conda` command. So the syntax is similar `conda`.
@@ -106,5 +127,6 @@ mamba env remove -n name_env
 ```
 
 ## Conclusion
+
 You have successfully set up a professional-grade Python development environment on your Ubuntu machine. By using **Miniforge3** and **Mamba**, you've gained a system that is isolated, fast, powerful and reproducible.
 
