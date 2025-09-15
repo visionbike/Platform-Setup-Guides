@@ -16,7 +16,7 @@ Please see the guide in [`01_setup_nvidia_driver_cuda_cudnn_and_tensorrt.md`](./
 
 To create and manage multiple terminals in one SSH session, **Tmux (Terminal Multiplexer)** is a powerfull command-line tool to deal with. It also support keeping processes running **even if SSH disconnects**.
 
-Please see the guide in [`02_setup_remote_ssh.md`](./02_setup_remote_ssh.md) and `03_manage_remote_sessions_with_tmux_and_ssh`
+Please see the guide in [`02_setup_remote_ssh.md`](./02_setup_remote_ssh.md) and [`03_manage_remote_sessions_with_tmux_and_ssh.md`](./03_manage_remote_sessions_with_tmux_and_ssh.md).
 
 ## III. Miniforge3 Installation
 
