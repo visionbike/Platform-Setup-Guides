@@ -36,7 +36,7 @@ The command shows all NVIDIA-related packages currently installed. If they are i
 The installed drivers should be uninstalled.
 
 ```sh
-sudo apt remove --purge -y nvidia-*
+sudo apt remove --purge -y .*nvidia-.*
 sudo apt autoremove -y
 sudo apt autoclean -y
 ```
