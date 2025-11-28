@@ -50,7 +50,7 @@ wget https://update.code.visualstudio.com/latest/linux-deb-x64/stable -O vscode.
 Install the downloaded `.deb` package using `dpkg` command.
 
 ```sh
-sudo apt dpkg -i vscode.deb
+sudo dpkg -i vscode.deb
 ```
 
 Then open the **VS Code** and ready to use.
@@ -75,7 +75,9 @@ Then open the **VS Code** and ready to use.
 ```sh
 sudo mkdir -p /opt/pycharm
 
-sudo tar -xzf pycharm-*.tar.gz -C /opt/pycharm --strip-components 1
+sudo chmod -R 777 /opt/pycharm
+
+tar -xzf pycharm-*.tar.gz -C /opt/pycharm --strip-components 1
 ```
 
 Launch **PyCharm**.
