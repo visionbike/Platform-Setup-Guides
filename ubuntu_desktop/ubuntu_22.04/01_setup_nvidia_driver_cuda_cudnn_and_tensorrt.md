@@ -203,7 +203,34 @@ NVRM version: NVIDIA UNIX x86_64 Kernel Module  580.105.08  Wed Oct 29 23:15:11 
 GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.2) 
 ```
 
-### 8. (Optional) Uninstalling NVIDIA Driver
+### 9. Preventing NVIDIA Driver from Automatically Upgrading
+
+Ubuntu’s **unattended-upgrades** service automatically installs security updates and critical patches in the background. By default, it may include NVIDIA packages unless explicitly excluded.
+To prevent it from upgrading NVIDIA packages, you can edit the **unattended-upgrades** configuration.
+
+```sh
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+```
+
+To add NVIDIA packages to the blacklist, you find the section `Unattended-Upgrade::Package-Blacklist { ... };` and add `.*nvidia-.*` to block all NVIDIA-related packages
+
+```txt
+Unattended-Upgrade::Package-Blacklist {
+    ".*nvidia-.*";  // Block all NVIDIA packages
+    "linux-image-*";  // Optional: Block kernel upgrades (if needed)
+    // ...
+};
+```
+
+Save the file and then run a dry-run of `unattended-upgrades` to verify:
+
+```sh
+sudo unattended-upgrades --dry-run --debug
+```
+
+Ensure no NVIDIA packages are listed as "To upgrade."
+
+### 10. (Optional) Uninstalling NVIDIA Driver
 
 Similar to the installation step, switch to a text-only console (**no GUI**) by go to TTY's mode (`CTRL + ALT + F3`). 
 
@@ -440,7 +467,7 @@ You will get folders like `include/`, `lib/`, etc. Then copy cuDNN files into CU
 E.g.,
 ```sh
 sudo cp ./include/cudnn*.h /usr/local/cuda-13.0/include
-sudo cp -P ./lib/libcudnn* /usr/local/cuda-13.0/lib64/
+sudo cp -P ./lib/libcudnn* /usr/local/cuda-13.0/lib64
 ```
 
 Set permissions the copied files.
@@ -488,7 +515,7 @@ To compile `mnistCUDNN` sample, run the command:
 ```sh
 cd cudnn_samples/mnistCUDNN
 
-make CUDA_PATH=/usr/local/cuda-13.0 -j $(nproc)
+make -j $(nproc)
 ```
 
 Run the program.
@@ -504,7 +531,7 @@ To compile `conv_sample` sample, run the command:
 ```sh
 cd cudnn_samples/conv_sample
 
-make CUDA_PATH=/usr/local/cuda-13.0 -j $(nproc)
+make -j $(nproc)
 ```
 
 Run the program.
@@ -548,7 +575,7 @@ sudo chmod -R 777 /opt/tensorrt-10.14.1
 Extract the tarball directly into your new directory. Using `--strip-components=1` is a useful trick to rmeove the top-level folder from the archive, resulting in a cleaner path.
 
 ```sh
-sudo tar -hxzvf TensorRT-10.14.1.48.Linux.x86_64-gnu.cuda-13.0.tar.gz -C /opt/tensorrt-10.14.1 --strip-components=1
+tar -hxzvf TensorRT-10.14.1.48.Linux.x86_64-gnu.cuda-13.0.tar.gz -C /opt/tensorrt-10.14.1 --strip-components=1
 ```
 
 After extracting, TensorRT files will be located in `bin/`, `include/`, `lib/`, etc. For the system and compiler to find the TensorRT libraries and executables, you must add its location to your environemnt variables (`.bashrc` file).
@@ -557,7 +584,7 @@ After extracting, TensorRT files will be located in `bin/`, `include/`, `lib/`, 
 # >>> TensorRT environment setup >>>
 export PATH=/opt/tensorrt-10.14.1/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/opt/tensorrt-10.14.1/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export TRT_LIBPATH=/opt/TensorRT-10.14.1/lib
+export TRT_LIBPATH=/opt/tensorrt-10.14.1/lib
 # <<< TensorRT environment setup <<<
 ```
 
@@ -577,7 +604,8 @@ For running examples, you can copu entire `samples` directory from the TensorRT 
 E.g.,
 
 ```sh
-git clone --branch v10.14 --single-branch --no-checkout https://github.com/NVIDIA/TensorRT.git tensorrt_samples
+git clone --branch v10.14 --single-branch https://github.com/NVIDIA/TensorRT.git tensorrt_samples
+cd tensorrt_samples
 git submodule update --init --recursive
 ```
 
@@ -586,7 +614,7 @@ Many samples require the TensorRT sample data package. From `v10.14`, the sample
 ```sh
 unzip tensorrt_sample_data_20251106.zip
 mkdir -p /opt/tensorrt-10.14.1/data
-cp -r tensorrt_sample_data_20251106/* /opt/tensorrt-10.14.1/data/
+cp -r tensorrt_sample_data_20251106/* /opt/tensorrt-10.14.1/data
 ```
 
 Add the following environment variable in `.bashrc` then source.
