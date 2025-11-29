@@ -2,7 +2,7 @@
 
 If you are trianing deep learning models or running long simulations on a remote server via SSH, you must know this:
 
-    The process will die the moment the SSH sesion disconnect!
+**"The process will die the moment the SSH sesion disconnect!"**
 
 Unless you use **Tmux**.
 
