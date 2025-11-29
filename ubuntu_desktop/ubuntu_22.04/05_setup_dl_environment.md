@@ -103,7 +103,8 @@ Before start training AI model, you can install he high-level AI framework (PyTo
 Open your IDE's terminal or new system terminal, create and activate the DL environment.
 
 ```sh
-mamba activate dl_env
+mamba create -n env_dl python=3.11
+mamba activate env_dl
 ```
 
 Install PyTorch or Tensorflow. Please check the installation in [here](https://pytorch.org/get-started/locally/) or [here](https://www.tensorflow.org/install).
