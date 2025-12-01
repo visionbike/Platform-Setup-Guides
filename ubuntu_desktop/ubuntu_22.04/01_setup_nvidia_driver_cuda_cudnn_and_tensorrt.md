@@ -109,19 +109,6 @@ sudo apt update -y
 sudo apt install -y build-essential gcc make dkms pkg-config libglvnd-dev curl wget git
 ```
 
-Download the CMake's latest version [here](https://cmake.org/download/) and install it.
-
-```sh
-wget https://github.com/Kitware/CMake/releases/download/v4.1.0/cmake-4.1.0-linux-x86_64.sh
-
-chmod +x cmake-4.1.0-linux-x86_64.sh
-
-sudo ./cmake-4.1.0-linux-x86_64.sh --skip-licence --prefix=/usr/local --exclude-subdir
-
-# check version
-cmake --version
-```
-
 This will install the necessary compilers and build tools for driver installation.
 
 Next, download the correct driver from official [NVIDIA website](https://www.nvidia.com/en-us/drivers/). Since for some specific support (e.g., NVIDIA Issac Sim), make sure install the NVIDIA driver from `*.run` file, **NOT** from **PPA** drivers with Ubuntu distribution. 
