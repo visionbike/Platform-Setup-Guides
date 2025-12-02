@@ -41,7 +41,7 @@ Verify the installed `tmux`.
 tmux -V
 ```
 
-## II. Tmux Session  on Server
+## II. Tmux Session on Server
 
 On the local machine, run `SSH` into the remote server.
 
